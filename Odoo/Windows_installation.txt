@@ -1,0 +1,70 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-08T08:34:27+01:00
+
+====== Windows installation ======
+Created jueves 08 noviembre 2018
+
+==== Packaged installer ====
+
+By default the parameters for the PostgreSQL connection are:
+* Hostname: localhost
+* Port: 5432
+* Username: openpg
+* Password: openpgpwd
+
+The default installation folder is:
+* C:\Program Files (x86)\Odoo 11.0
+
+By default the Odoo installation creates two services in Windows that will start automatically on PC startup:
+* odoo-server-11.0
+* PostgreSQL_For_Odoo
+
+The core code of Odoo can be found inside the installation folder in the [[/server]] folder
+
+To apply patch we need to copy two files to the following directories:
+* odoo/addons/mrp/models/mrp_production.py
+* odoo/addons/mrp/views/mrp_production_view.xml
+
+
+
+==== Source install ====
+
+* Python 3.5+
+	* https://www.python.org/downloads/windows/
+
+* PostgreSQL
+	* http://www.enterprisedb.com/products-services-training/pgdownload
+	* add PostgreSQL’s bin directory (default: C:\Program Files\PostgreSQL\9.4\bin) to your PATH
+	* create a postgres user with a password using the pg admin gui: open pgAdminIII, double-click the server to create a connection, select Edit ‣ New Object ‣ New Login Role, enter the usename in the Role Name field (e.g. odoo), then open the Definition tab and enter the password (e.g. odoo), then click OK.
+	* The user and password must be passed to Odoo using either the -w and -r options or the configuration file
+
+* Python dependencies listed in the requirements.txt file.
+	* on Windows you need to install some of the dependencies manually, tweak the requirements.txt file, then run pip to install the remaning ones.
+	
+	Install psycopg using the installer here http://www.stickpeople.com/projects/python/win-psycopg/
+	
+	Then use pip to install the dependencies using the following command from a cmd.exe prompt (replace \YourOdooPath by the actual path where you downloaded Odoo):
+	
+	{{./pasted_image.png}}
+	
+* Less CSS via nodejs
+	* on Windows, install nodejs (https://nodejs.org/en/download/), reboot (to update the PATH) and install less: 
+	* ''npm install -g less''
+
+
+Password for PostgreSQL:
+**openpgpwd**
+
+Problems:
+Need to install Microsoft Visual C++ Build Tools
+
+Hint:
+When installing node check the box to install other needed tools
+
+
+
+
+
+
+

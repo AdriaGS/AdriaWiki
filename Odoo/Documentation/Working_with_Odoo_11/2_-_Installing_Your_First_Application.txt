@@ -1,0 +1,109 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T09:31:27+01:00
+
+====== 2 - Installing Your First Application ======
+Created martes 06 noviembre 2018
+
+===== Databases in Odoo =====
+
+==== Selecting a database name ====
+
+There are a few rules for creating an Odoo database:
+
+* Your database name **cannot contain spaces** and must start with a number or letter
+* Also, you will need to **avoid commas, periods, and quotes**
+* **Underscores and hyphens are allowed** if they are not the first character in thename
+
+It can also be a good idea to **specify** in the name whether the database is for **development, testing, or production** purposes.
+
+
+==== Managing databases in Odoo ====
+
+The database management interface allows you to perform basic database management tasks such as backing up or restoring a database. You can access the database management interface directly by going to the ///web/database/manager// path.
+
+
+==== Securing the Odoo database manager ====
+
+Click the **Set Master Passowrd** to specify a password. VERY IMPORTANT to secure an Odoo installation.
+
+
+
+===== Installing the Sales Management module =====
+
+==== Creating first customer ====
+
+Odoo offers flexibility in collecting customer information, and by default most fields are not required. If you see a field that is purple, that is a required field. In Odoo 10, the only required field for the customer is the name.
+
+=== Is this customer a company? ===
+At the very top of the form is a radio selection option to inform Odoo if this customer is an **individual or a company**.
+
+=== Editing customer Sales & Purchases ===
+The bottom area of the customer screen is divided into a series of tabs or pages that assist in organizing customer information. In the Sales & Purchases page, we can assign such options as a salesperson and other sales-related options.
+The available options in the customer Sales & Purchases page are:
+* **Is a Customer**:  Odoo has a unique method of storing data related to people in the system. All individuals are stored in the same table ( res_partner ) regardless if they are a customer or supplier. The customer flag tells Odoo that this is in fact a customer record.
+* **Salesperson**: The salesperson field allows you to select who the direct salesperson will be for this customer. While the field is not required, it is often populated if you are integrating your sales management system with the Customer Relationship Management (CRM) module. 
+* **Internal Reference**: Often when implementing Odoo, a company already has an existing customer numbering system in place. The reference field is the perfect field to populate with an existing customer number.
+* **Is a Vendor**: Because Odoo stores customer and vendor data in the same table, it is possible to be both a customer and a supplier.
+
+=== Editing customer invoicing ===
+Here are the available options in the customer invoicing page:
+* **Customer Payment Term**: It is common in many businesses for different customers to have different payment terms. Perhaps, for a lifelong customer, you would extend 30- or even 60-day net terms for them to pay their invoice. For a new customer, you may require immediate payment. Additional terms can be configured in Odoo depending on your needs. The default payment terms included are:
+	* Immediate Payment
+	* 15 Days
+	* 30 Net Days
+* **Vendor Payment Term**: Much like the Customer Payment Term, this field will determine the payment terms for the supplier. Because a partner can be both a customer and supplier, we have separate terms for each.
+* **Fiscal Position**: The Fiscal Position field is sometimes also known as the tax status, and is in some systems represented simply as taxable. Odoo 9 now provides a robust fiscal position framework that allows you to set up rules for your customers and vendors for almost any scenario. Fortunately, for simple installations you can avoid this field entirely.
+
+
+==== Creating a product ====
+
+Information that can be filled when creating a new product:
+* **Product Name**
+* **Can be Sold**
+* **Can be Purchased**
+* **Product Type**
+	* Consumable
+	* Service
+* **Internal Reference**
+* **Sales Price**
+* **Cost Price**
+
+=== Product's invoicing page ===
+You will also notice that Odoo allows you to have multiple taxes for the same product. This allows you to have a base tax applying to all products, and then simply add an additional tax, or even a tax credit, depending on that specific product.
+
+
+==== First sales order ====
+
+Every brand-new sales order **begins as a quotation** and stays in that state until you confirm the sale. Only after confirming the quotation will your sale be referred to as a sales order.
+
+Parameters:
+	* **Customer**
+	* **Expiration date **(can leave blank)
+	* **Payment terms**
+	* **Line items **
+		* Product
+		* Description
+		* Ordered Qty
+		* Unit Price
+		* Taxes
+		* Subtotal
+
+=== Understanding the sales order workflow ===
+The available actions you can take on this quotation are:
+	* **Confirm Sale**
+	* **Print**
+	* **Send by email**
+	* **Cancel**
+
+=== Invoicing the sale ===
+Odoo provides a variety of options for invoicing the entire sales order, or instead invoicing based on other methods. The available choices are:
+
+* **Invoiceable lines/Invoiceable lines (deduct down payments)**: Choose this option if you both want to invoice the lines and deduct any down payments you have received. This is the default option. Using Invoiceable lines without deducting down payments will simply ignore any of those payments when producing the invoice.
+* **Down payment (percentage)**: You will be prompted to enter the percentage amount of the down payment. 
+* **Down payment (fixed amount)**: You will be prompted to enter a fixed amount for the down payment.
+
+
+
+
+

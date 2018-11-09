@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T10:26:31+01:00
+
+====== Other ======
+Created martes 06 noviembre 2018
+
+==== Creating a virtual environment ====
+'''
+$ virtualenv myenv // virtualenv -p python3 myenv
+.. some output ..
+$ source myenv/bin/activate
+(myenv) $ pip install what-i-want
+$ deactivate / source deactivate
+'''
+
+
+==== Restart network service ====
+''sudo service network-manager restart''
+
+
+

@@ -1,0 +1,77 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T07:55:03+01:00
+
+====== 4 - Scaffolding a new module ======
+Created miércoles 07 noviembre 2018
+
+===== Scaffold a new module with the 'Scaffold' command from Terminal =====
+
+==== Steps: ====
+
+1. Locate odoo-bin
+2. Use: ''./odoo-bin scaffold module_name folder_name''
+3. Check if the module is there
+
+
+===== Installing first module =====
+
+In order to start Odoo with the custom_addons folder we need to add "custom_addons" as path at the end of the command with ''--addons_path=()'' option or set it into the configuration file.
+
+
+===== Making changes to existing views while inheriting them =====
+
+==== __manifest__.py ====
+
+File where we make the statements for our module:
+* Name
+* Summary
+* Description
+* Author
+* Website
+* Category
+* Version
+* Dependencies
+* Data that is going to be loaded
+
+==== views.py ====
+
+Example of how to add a field under and specific field in the sales view
+
+'''
+<odoo>
+  <data>
+    <record id="custom_sale_order_view" model="ir.ui.view">
+      <field name="name">custom.sale.order.view</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+          <field name="new_field" />
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
+'''
+
+
+==== models.py ====
+
+How to inherit and define the new field
+
+from odoo import models, fields, api
+
+'''
+class test_module(models.Model):
+    _inherit='sale.order'
+    new_field = fields.Char(string='Order Number')
+'''
+
+
+
+
+
+
+
+

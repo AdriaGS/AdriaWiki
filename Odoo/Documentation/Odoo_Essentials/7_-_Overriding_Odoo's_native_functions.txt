@@ -1,0 +1,58 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T14:09:52+01:00
+
+====== 7 - Overriding Odoo's native functions ======
+Created miércoles 07 noviembre 2018
+
+===== Override create function =====
+
+Every model is created in Odoo has a create function already pre-defined by Odoo, to override it we can enter the following code:
+
+'''
+@api.model
+def create(self, values):
+    if 'name' in values:
+        values['name'] = values['name'].upper()
+        new_rec = super(PhoneBook, self).create(values)
+        return new_rec
+'''
+
+
+===== Override write function =====
+
+Every model is created in Odoo has a write function already pre-defined by Odoo, to override it we can enter the following code:
+
+'''
+@api.multi
+def write(self, values, context = None):
+    if 'name' in values:
+        values['name'] = values['name'].upper()
+        old_rec = super(PhoneBook, self).write(values)
+    else:
+        old_rec = super(PhoneBook, self).write(values)
+    return True
+'''
+
+
+===== Override unlink (delete) function =====
+
+Every model is created in Odoo has a unlink function already pre-defined by Odoo, to override it we can enter the following code:
+
+'''
+@api.multi
+def unlink(self):
+    for rec in self:
+        if rec.name == 'JOHN':
+            raise NameError('Record with name john cannot be deleted')
+'''
+
+
+
+
+
+
+
+
+
+

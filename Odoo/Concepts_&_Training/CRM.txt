@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-05T12:13:21+01:00
+
+====== CRM ======
+Created lunes 05 noviembre 2018
+
+===== Lead: =====
+A lead represents any person or organization that a company might have the potential to do business with. In fact, creating a Lead record of information about a new lead is often the first step users take in the sales process.
+
+===== KPI (Key Performance Indicator): =====
+Is a measurable value that demonstrates how effectively a company is achieving key business objectives. Organizations use key performance indicators at multiple levels to evaluate their success at reaching targets. High-level KPIs may focus on the overall performance of the enterprise, while low-level KPIs may focus on processes or employees in departments such as sales, marketing or a call center.
+
+===== Odoo CRM app: =====
+
+Purposes:
+* Lead Management
+* Opportunity Management
+* Optimise sales process

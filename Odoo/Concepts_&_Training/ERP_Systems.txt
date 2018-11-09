@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-05T17:04:01+01:00
+
+====== ERP Systems ======
+Created lunes 05 noviembre 2018
+
+ERP is an acronym for Enterprise Resource Planning, but even its full name doesn't shed much light on what ERP is or what it does. For that, you need to take a step back and think about **all of the various processes that are essential to running a business**, including **inventory and order management, accounting, human resources, customer relationship management (CRM)**, and beyond. At its most basic level, ERP software integrates these various functions into one complete system to streamline processes and information across the entire organization.
+
+The central feature of all ERP systems is a **shared database** that supports multiple functions used by different business units. In practice, this means that employees in different divisions—for example, accounting and sales—can rely on the same information for their specific needs.

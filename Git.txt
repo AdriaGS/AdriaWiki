@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T10:35:41+01:00
+
+====== Git ======
+Created martes 06 noviembre 2018
+
+==== To know remote URL ====
+''git remote show origin''
+
+==== Clone a specific branch ====
+''git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0''
+

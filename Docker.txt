@@ -1,0 +1,68 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T16:40:54+01:00
+
+====== Docker ======
+Created miércoles 07 noviembre 2018
+
+https://docker-curriculum.com/
+
+Docker is a tool that allows developers to easily **deploy their applications in a sandbox** (called **containers**) to run on the host operating system i.e. Linux. The key benefit of Docker is that it **allows users to package an application with all of its dependencies** into a standardized unit for software development. Unlike virtual machines, containers do not have the high overhead and hence enable more efficient usage of the underlying system and resources.
+
+==== Terminology: ====
+
+* //Images: //The blueprints of our application which form the basis of containers
+* //Containers: //Created from Docker images and run the actual applications
+* //Docker Daemon: //The background service running on the host that manages building, running and distributing DOcker containers.
+* //Docker Client: //The command line tool that allows the user to interact with the daemon. 
+* //Docker Hub: //A registry of Docker images.
+
+
+==== Commands: ====
+
+**pull command:**
+	** fetches** the busybox **image** from the **Docker registry** and saves it to our system. 
+	
+**images** **command:**
+	 To see a list of all images on your system.
+
+**ps command:**
+	Shows you all containers that are currently running. Adding the **-a **will also show the containers that were exited.
+
+**rm command:**
+	To clean up containers. You can follow the command with the container ID that was shown in the **ps -a** command or type **$(docker ps -a -q -f status=exited)**. The -q is used to return only the numeric IDs and the -f filters the otput based on conditions provided.
+	
+**container prune**
+	To remove all stopped containers
+
+
+==== Options: ====
+
+**-it flag:**
+	Attaches us to an interactie tty in the container.
+	
+**- -rm flag:**
+	Automatically removes the container when it exits.
+
+**-d flag:**
+	Will detach the terminal.
+	
+**- -P flag: **
+	Will publish all exposed ports to random ports **80/tcp -> 0.0.0.0:32769** & **443/tcp -> 0.0.0.0:32768**
+
+**- -name flag: **
+	Corresponds to a name we want to give
+
+**-p flag:**
+	Specify which port the client will forward the connections to the container: **8888:80**
+	
+
+
+
+
+
+
+
+
+
+

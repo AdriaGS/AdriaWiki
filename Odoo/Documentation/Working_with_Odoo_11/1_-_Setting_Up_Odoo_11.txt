@@ -1,0 +1,72 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-05T16:38:17+01:00
+
+====== 1 - Setting Up Odoo 11 ======
+Created lunes 05 noviembre 2018
+
+==== Accessing the Odoo free online trial: ====
+Accessing the online trial version of Odoo Online could not be simpler. Just open up your browser and navigate to //https:/​/​www.​odoo.com/​trial //.
+
+You need to activate by email in order to be granted with unlimited time Odoo for free as long as you only install one application.
+
+
+==== Introducing the PostgreSQL database ====
+Like most ERP systems, Odoo has specific database requirements: in this case, [[PostgreSQL]].
+
+
+==== Installing Odoo on Ubuntu ====
+
+=== Modifying the sources.list files ===
+Installing Odoo in Ubuntu is easy when you use the Debian repository. In order to perform these operations, you may have to be the root user. If you have an account that has the permissions to do so, you can temporarily switch to the root user by opening a Terminal window, and entering the following:
+
+	//sudo -s//
+
+For better security and to guarantee you are installing the correct package, Odoo now signs their distributions. The following command adds the correct key to your Ubuntu installation so that it will recognize the Odoo package:
+
+	//wget -O - https://nightly.odoo.com/odoo.key | apt-key add -//
+
+Next, we want to add the distribution to the /etc/apt/sources.list file with the following command:
+
+	//echo "deb http://nightly.odoo.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list//
+
+This installs the package.
+
+You can start the installation process by entering these commands into a Terminal window:
+
+	//sudo apt-get update//
+	//sudo apt-get install odoo//
+
+The Odoo packages will first be downloaded and then installed. This is an all-in-one installation and should set up all the necessary packages, PostgreSQL, and library  dependencies required to run Odoo.
+
+By default, the deb installation will place the source in the following directory:
+
+	///usr/lib/python3/dist-packages/odoo//
+
+
+=== Testing your Odoo installation ===
+Point your browser to http://localhost:8069 and you should see the Odoo database creation page appear.
+
+=== Checking for Odoo services running in Ubuntu ===
+In Ubuntu, you can locate the Odoo service by running the following command in a Terminal window:
+	
+	//ps aux | grep Odoo//
+	
+
+=== Starting and stopping Odoo services in Ubuntu ===
+When managing an Odoo server, one of the most common tasks you will find yourself performing is starting and stopping the Odoo service. Odoo allows you to start and stop the service with a command switch.
+
+To start the service, use:
+
+	//sudo /etc/init.d/odoo start//
+
+To stop the service, use:
+
+	//sudo /etc/init.d/odoo stop//
+
+
+==== Modifying the Odoo configuration file ====
+The Odoo framework allows you to specify a configuration file for your installation. By default, this file is located at **/etc/odoo/odoo.conf** .
+Using this file, you can change many of the attributes of Odoo.
+
+

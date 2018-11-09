@@ -1,0 +1,99 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T13:35:57+01:00
+
+====== 1 - Set up and launch Odoo 11 ======
+Created martes 06 noviembre 2018
+
+===== Installing Software Requirements for Odoo 11 =====
+
+==== Steps: ====
+1. Install python 3
+2. Install pip3
+3. Install node less with css
+	a. ''sudo apt-get install npm''
+	b. ''sudo ln -s /usr/bin/nodejs /usr/bin/node'' (creates direct access)
+	c. ''sudo npm install -g less less-plugin-clean-css''
+	d. ''sudo apt-get install node-less''
+4. Install software requirements using git file requirements.txt (''pip3 install -r requirements.txt'')
+
+
+===== Installing PostreSQL =====
+
+==== Steps: ====
+1. ''sudo apt-get install python-software-properties''
+2. ''sudo apt-get update''
+3. ''sudo add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ $/lsb_release -sc)-pgdg main"''
+4. ''wget --quiet -https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -''
+5. ''sudo apt-get update''
+6. ''sudo apt-get install postgresql''
+	a. ''sudo su postgres''
+	b. ''cd''
+	c. ''createuser -s root''
+	d. ''createuser -s ubuntu-user''
+	e. exit
+7. ''sudo adduser --system --home=/opt/odoo --group odoo''
+8. Install Gdata
+	a. ''cd /opt/odoo''
+	b. ''sudo wget https://pypi.python.org/packages/a8/70/bd554151443fe9e89d9a934a7891aaffc63b9cb5c7d608972919a002c03c/gdata-2.0.18.tar.gz''
+	c. ''sudo tar zxvf gdata-2.0.18.tar.gz''
+	d. ''sudo chown -R odoo: gdata-2.0.18''
+	e. ''sudo -s''
+	f. ''cd gdata-2.0.18/''
+	g. ''python setup.py install''
+	h. Exit
+
+
+===== Setting Up the Configuration File =====
+
+==== Steps: ====
+1. ''cd /opt/odoo''
+2. ''sudo su - odoo -s /bin/bash ''(change to odoo user)
+3. ''git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0''
+4. ''sudo mkdir /var/log/odoo ''**(as root)**
+5. ''sudo chown -R odoo:root /var/log/odoo''
+6. ''sudo nano /etc/odoo.conf''
+	
+	//[options]//
+	//; This is the password that allows database operations://
+	//admin_passwd = admin//
+	//db_host = False//
+	//db_port = False//
+	//db_user = root//
+	//db_password = False//
+	//logfile = /var/log/odoo/odoo-server.log//
+	//addons_path = /opt/odoo/odoo/odoo/addons,/opt/odoo/odoo/addons//
+
+8. ''sudo chown odoo: /etc/odoo.conf''
+9. ''cd /opt/odoo/odoo''
+10. ''./odoo-bin --config='/etc/odoo.conf'''
+
+
+===== Adding Own Directory to Odoo Moules Path =====
+
+==== Steps: ====
+1. ''cd /opt/odoo/odoo''
+2. ''mkdir custom_addons''
+3. ''sudo nano /etc/odoo.conf''
+4. add a line to addons_path (pwd)
+5. ''./odoo-bin scaffold tst_module custom_addons ''(scaffold a new module in that custom path)
+6. restart odoo
+
+
+===== Configuring the Auto-Start Script =====
+
+==== Steps: ====
+1. ''cd /etc/init.d''
+2. ''nano odoo11-server''
+3. paste script in https://raw.githubusercontent.com/mohitg1213/odoo_scripts/master/odoo-server
+4. make script executable → ''sudo chmod +x /etc/init.d/odoo11-server''
+5. ''sudo /etc/init.d/odoo11-server {start | stop | restart}''
+
+
+
+
+
+
+
+
+

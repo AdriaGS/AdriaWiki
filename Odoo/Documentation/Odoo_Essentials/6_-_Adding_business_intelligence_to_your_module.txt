@@ -1,0 +1,101 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T10:59:35+01:00
+
+====== 6 - Adding business intelligence to your module ======
+Created miércoles 07 noviembre 2018
+
+===== Writing your first function =====
+
+==== Steps: ====
+
+1. Edit the python file adding the function
+2. Edit the .xml file adding a button
+
+Ex. function
+	''	 def print_name(self):''
+''      print("Name of record: %s" %self.name)''
+''      return True''
+Ex. xml button
+	''<button name="print_name" string="Print" type="object" />''
+
+
+===== Calculated fields using the first function =====
+
+==== Steps: ====
+
+1. Edit python file adding the address field to the model	→ ''address = fields.Char('Full Address', compute='_calculate_address')''
+2. Define a new function that will calculate the address
+'''
+@api.depends('country_id', 'city', 'street') 
+'''
+→ **The function depends on those fields and if one of those change the function will be reevaluated**
+''def _calculate_address(self):''
+''    full_address = self.country_id.name + ', ' + self.city + ', ' + self.street''
+''    self.address = full_address''
+
+ 3. Add the field in the view
+	''<field name="address" />''
+
+
+===== Adding a api.onchange function and learning the use of it =====
+
+==== Steps: ====
+
+1. Modify python file adding new field and new function using @api.model
+2. Add the field in the view
+
+
+	  ''address_for_printing = fields.Char('Printing Address')''
+
+'''
+@api.model
+@api.onchange('name')
+def return_full_address(self):
+    if self.name and self.address:
+        self.address_for_printing = 'customer: ' + self.name + ' ' + self.address
+'''
+
+
+
+===== api.one, self-ensure_one( ) and api.model =====
+
+==== Odoo function decorators: ====
+
+* A decorator by definition is a function that takes a function as input and is expected to return a function
+* The anatomy of the decorator would be: @decorator-expression
+* Function definition
+	* Decorator-expression is an expression that is expected to return a callable thing
+	* The callable thing has to take always a single argument
+	* Function definition must begin with def
+
+==== @api.one ====
+
+* It is specific only for one record
+* Self is always redefined as the current record
+* Example:
+	* ''@api.one''
+	* ''def set_name(self):''
+	* ''self.name = 'customer'''
+* This function will automatically write partner name field of each record with 'customer'
+
+==== self.ensure_one( ) ====
+
+* **Very important:**
+* If you are using @api.one, the returned value will be a list
+* This is not always supported by the web client, most of the cases is not
+* To solve this is always better use @api.multi with self.ensure_one( ) instead of @api.one to avoid the side effect in return values
+
+==== @api.model ====
+
+* is used when the record data/self is not relevant
+* This means that the function will get executed but you do not rely on the record, you just need the function to do stuff without the values of self
+
+
+
+
+
+
+
+
+

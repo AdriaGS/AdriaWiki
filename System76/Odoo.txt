@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T11:00:19+01:00
+
+====== Odoo ======
+Created miércoles 07 noviembre 2018
+

@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T15:35:09+01:00
+
+====== Observations ======
+Created miércoles 07 noviembre 2018
+
+If we are creating a user for example, if we access any parameter using **self.**city for example even if it's a char sequence it will **return a False value**

@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T11:46:06+01:00
+
+====== 3 - Exploring CRM in Odoo ======
+Created martes 06 noviembre 2018
+
+**Leads are intangible and are essentially potential contacts. Opportunities should be more clearly defined**, have some sort of expected income of successful, and provide significant project details and scope compared to a simple lead.

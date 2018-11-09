@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T09:18:10+01:00
+
+====== Terminator ======
+Created martes 06 noviembre 2018
+
+===== Keybindings: =====
+
+**Split Terminals Horizontally → **//Ctrl+Shift+O//
+**Split Terminals Vertically** → //Ctrl+Shift+E//
+**Move between terminals** → //Alt + Arrow//
+**Close Tab** → //Ctrl+Shift+W//
+
+**Clean up the line → **//Ctrl+U//

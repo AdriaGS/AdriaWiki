@@ -1,0 +1,80 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T15:16:25+01:00
+
+====== 2 - Odoo Backend ======
+Created martes 06 noviembre 2018
+
+===== Create a new database =====
+
+Go to https://localhost:8069/web/database/selector, press **Manage databases **and **Create database**. Then, complete the fields to create the new database.
+
+
+===== Setting up Users and their permissions =====
+
+By default Odoo will set the highest permissions to every new user. To change that we need to:
+1. Go to Settings
+2. In settings press the General Settings link
+3. Scroll down and check the option **Access Rights**
+
+Whenever you create a new User you can now give him/her the permissions that you want leaving in blank the sections the user is not supposed to have access to.
+
+{{./pasted_image.png?width=800}}
+
+
+===== Exploring the 'Apps' Menu =====
+
+To install new apps we go to the App tab and we search the app we want to install using filters.
+
+Every time we change the source code of a module we need to **upgrade the module** in order for Odoo to refresh the code base.
+
+
+===== 'Debug' Mode =====
+
+=== Enable debug mode from settings ===
+Go to settings and click the button (Activate the developer mode)
+
+=== Enable debug mode from URL ===
+The key word **?debug ** need to be added just after //web// in the URL
+
+==== Why the debug mode? ====
+
+* All the fields have bettwe explanation on them for easier coding and understanding the relations
+* Access to the technical features opens a new door for us
+
+
+===== Fields (column) and Models (table) =====
+
+==== Models: ====
+
+* This is where you should keep your data model, or the algorithms
+* You would have the computation engine in your model, you would have the code to save and load your tasks in your model
+* THis model class could potentially be reused in other applications
+
+Ex. 
+If you write a to-do application, we would keep the data in the model, saved in fields.
+
+==== Fields: ====
+
+* Fields defined in th emodel are basically the columns that you would define in the database
+* Check with a simple query the column name against the field name from Odoo view
+
+Ex.
+Field name would be the same with the column name if we check in the database on the used table (model)
+
+
+=== To access the database: ===
+1. ''sudo su postgres''
+2. ''psql''
+3. ''\c demo ''(access the demo database)
+4. ''execute some postgreSQL command''
+
+
+
+
+
+
+
+
+
+

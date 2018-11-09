@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-05T18:25:12+01:00
+
+====== ToDo ======
+Created lunes 05 noviembre 2018
+
+05/11/18
+
+[*] - Install Odoo
+[*] - Continue with Chapter 2 of Working with Odoo 11
+[*] - Check out videos
+[*] - Helpdesk section in the Odoo training course
+
+06/11/18
+
+[ ] - Continue with Chapter 3 of Working with Odoo 11
+[*] - Solve outgoing email problem with Gmail → Solved using an account @gmail.com (@eficent.com not working)
+[*] - Keep with the video lectures (Section 4)
+
+07/11/18
+
+[ ] - Start building demo for system76 case → CRM (leads, products, offers depending on opportunity state, etc)
+		//"Leads tienen possibilidad de añadir actividades en cada etapa de la oportunidad"//
+[ ] - Explore custom modules and core code of Odoo
+[*] - Docker tutorial
+
+

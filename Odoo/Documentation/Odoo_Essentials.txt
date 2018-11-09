@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T14:10:23+01:00
+
+====== Odoo Essentials ======
+Created miércoles 07 noviembre 2018
+
+* ==== Odoo backend ====
+
+
+
+* ==== Odoo frontend (views) ====
+
+
+
+* ==== Creating models ====
+
+
+
+* ==== Creating fields ====
+
+
+
+* ==== Types of fields ====
+
+
+
+* ==== Python functions for Odoo ====
+
+
+
+* ==== Overriding the Odoo native functions ====
+
+
+

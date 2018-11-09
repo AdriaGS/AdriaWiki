@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-05T12:59:31+01:00
+
+====== Odoo ======
+Created lunes 05 noviembre 2018
+
+==== Execute task ====
+In order to execute any task that runs automatically we need to activate debug mode.  Then:
+1. Go to settings
+2. Technical menu
+3. Scheduled Actions
+4. Ex: CRM Score: Lead assignation
+5. Switch on
+6. Run manually
+
+
+==== Database selector ====
+https://localhost:8069/web/database/selector
+
+
+==== Starting the instance: ====
+* **-d database_name**: Use that database by default
+* **-db-filter=database_name**: Only try to connect to databases matching the supplied regular expression
+* **--addons-path=directory1,directory2,...**: This is a comma separated list of directories in which Odoo will look for addons
+
+If your are using a database user with a database login different from your Linux login:
+* **--db_host=localhost**: use a TCP connection to the database server
+* **--db_user=database_username**: use the specified database login
+* **--db_password=database_password**: the password to use to authenticate against the PostgreSQL server
+

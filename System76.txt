@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-05T15:40:45+01:00
+
+====== System76 ======
+Created lunes 05 noviembre 2018
+
+===== Products: =====
+
+==== Laptops: ====
+
+* **Gazelle → $869**
+* **Kudu → $999**
+* **Galago Pro → $899**
+* **Oryx Pro → $1,699**
+* **Serval WS → $1,999**
+* **Bonobo WS → Unavailable**
+
+==== Desktop: ====
+
+* **Thelio → $1,099**
+* **Thelio Major → $2,299**
+* **Thelio Massive → $2,899**
+
+==== Mini: ====
+
+* **Mini Short**
+* **Mini Tall**
+
+==== Servers: ====
+
+* **Jackal 1U → $1,449**
+* **Jackal Pro 1U → $2,899**
+* **Jackal Pro 2U → $2,999**
+* **Ibex Pro GPU → $6,999**
+* **Starling Pro ARM → $6,399**
+

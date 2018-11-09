@@ -1,0 +1,88 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-06T16:39:19+01:00
+
+====== 3 - Setting up outgoing incoming mail servers ======
+Created martes 06 noviembre 2018
+
+===== Setting up outgoing mail server =====
+
+First step is to **allow Gmail to be used in a outgoing mail server**:
+1. Login to your Gmail account and go to settings **(needs to be @gmail.com)**
+2. Click on the Forwarding/IMAP tab and scroll down to the IMAP Access section
+	IMAP must be enabled in order for emails to be properly copied to your sent folder
+	
+Second step is to **create outgoing mail server on Odoo11**
+1. Enable the debug mode
+2. Navigate to Settings → Technical → Outgoing mail servers
+3. Create a new mail server
+4. Enter all details needed
+	a. SMTP server: **smtp.gmail.com**
+	b. SMTP username: **full gmail**
+	c. SMTP password: **email password**
+	d. SMTP port: **465**
+	e. SMTP TLS/SSL required: **yes**
+
+
+===== Sending mail and getting confirmation =====
+
+First we need to **create a mail template:**
+1. Navigate to Settings → Technical → Templates
+2. Create a new template for the Contacts
+3. Edit and enter our text in the template
+4. Save the template
+
+Second we need to **send the created mail template out of Odoo:**
+1. Create a contact
+2. In the chatter below, click send message and expand using the diagonal arrow
+3. Choose the template we have created
+4. Add more text if needed
+5. Send the mail
+6. Check if the mail has been sent
+
+
+===== Setting up incoming mail server =====
+
+Use your own email servers:
+1. Navigate to Settings → General Settings
+2. Click on use your own email servers
+3. Enter alias domain (gmail.com in system parameters)
+
+==== Steps: ====
+
+1. Navigate to Settings → Technical → Emails → Incoming Mail Servers
+	a. Click on create new
+	b. Enter all the details listed in the form
+		1. **imap.gmail.com**
+		2. Requires SSL: **Yes**
+		3. Port: **993**
+		4. Full Name: **Your name**
+		5. Account name: **full email address**
+		6. Password: **Gmail password**
+
+
+===== Create a new task from the mail =====
+
+Create a new record on incoming mail:
+1. Navigate to Settings → Technical → Emails → Incoming Mail servers
+2. Click on our incoming mail server
+3. Click on Create a New Record and select project.task
+4. Send a mail to odoodemopackt@gmail.com
+
+Once the mail has been sent we do Fetch now in order to receive pending emails
+
+Then:
+1. Navigate to Project → Tasks
+2. Check for the new task that got created
+
+==== Why it is important? ====
+
+* Project support
+* Keep track of CRM
+* Manage mail from Odoo
+
+
+
+
+
+

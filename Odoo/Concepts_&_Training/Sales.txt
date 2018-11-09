@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-05T13:27:45+01:00
+
+====== Sales ======
+Created lunes 05 noviembre 2018
+
+===== Quotation: =====
+**A Sales Quotation allows a prospective buyer to see what costs would be involved for the work they would like to have done.**
+
+Purpose:
+* To sell the products or services at the price quoted. This aim is to get a document confirmation of what has been decided between you and your prosective buyer.
+
+Things to include:
+* Contact Info
+* Cost
+* Product details
+* Warranty
+* Tax details
+* Delivery date
+* Payment T&C
+* Expiry date
+
+
+===== Lead time: =====
+* **Order Lead Time** - Time from customer order received to customer order delivered.
+* **Order Handling Time** - Time from customer order received to sales order created.
+* **Manufacturing Lead Time** - Time from sales order created to production finished (ready for delivery).
+* **Production Lead Time** - Time from start of physical production of first submodule/part to production finished (ready for delivery).
+* **Delivery Lead Time** - Time from production finished to customer order delivered.

@@ -1,0 +1,187 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-07T09:21:59+01:00
+
+====== 5 - Create a new module using the models.Model class ======
+Created miércoles 07 noviembre 2018
+
+===== ORM: Object-Relational Mappin =====
+
+* A key component of Odoo is the ORM layer
+* This layer avoids having to write most SQL by hand and provides extensibility and security services
+
+===== Adding a new model =====
+
+We need to modify/create two files:
+
+=== __init__.py ===
+Add import of the new file created:
+	''import . from phonebook''
+	
+
+=== phonebook.py ===
+'''
+# -*- coding: utf-8 -*-
+from odoo import models, fields, api
+
+class PhoneBook(models.Model):
+    _name = 'phone.book'
+    _description = "Phone Book"
+'''
+
+
+This will create a new model with the name that has been defined
+
+In order to see this changes in the interface we need to:
+1. Safe changes in the code editor
+2. Restart odoo
+3. Upgrade the module in the Apps view
+4. Go to Technical Settings in the Database Structure section
+5. Go to Models subsection and search for the name
+
+
+===== Creating new fields to our models =====
+
+==== Categories of fields: ====
+
+* **Simple **fields which are atomic values stored directly in the model's table → Boolean, Date, Char...
+* **Relational ** fields that are linking records (of the same model or of different models) → Many2one, Many2many...
+
+==== Steps: ====
+
+1. Open the "test_module" in code editor
+2. Edit "//phonebook.py//" and add our fields:
+'''
+name = fields.Char(string = "Name", required = True)
+related_partner = fields.Many2one('res.partner', string = "Related Partner")
+date_of_joining = fields.Date(string = "Date of Joining")
+category_id = fields.Many2many('res.partner.category', string = "Tags")
+city = fields.Char(string = "City", required = True)
+street = fields.Char(string = "Street", required = True)
+country_id = fields.Many2one('res.country', string = "Country", required = True)
+'''
+
+
+
+===== Creating a view for our new module =====
+
+==== Create a menu point: ====
+
+* Create //phonebook_view.xml //
+'''
+<odoo>
+  <data>
+    <!-- LIST VIEW -->
+      <record id="phone_book_view_tree" model="ir.ui.view">
+          <field name="name">All Phonebook Records</field>
+          <field name="model">phone.book</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name" />
+                  <field name="date_of_joining" />
+                  <field name="city" />
+                  <field name="street" />
+                  <field name="country_id" />
+                  <field name="related_partner" />
+              </tree>
+          </field>
+      </record>
+      <!-- LIST VIEW -->
+
+      <!-- FORM VIEW -->
+      <record id="view_calls_form" model="ir.ui.view">
+          <field name="name">Phonebook Record</field>
+          <field name="model">phone.book</field>
+          <field name="arch" type="xml">
+              <form>
+                  <sheet>
+                      <group name="group_top">
+                          <group name="group_left">
+                              <field name="name" />
+                              <field name="date_of_joining" />
+                          </group>
+                          <group name="group_right">
+                              <field name="related_partner" />
+                          </group>
+                      </group>
+                      <group name="group_middle">
+                          <field name="category_id" />
+                      </group>
+                      <group name="group_down">
+                          <group name="group_left">
+                              <field name="city" />
+                              <field name="country_id" />
+                          </group>
+                          <group name="group_right">
+                              <field name="street" />
+                          </group>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+      <!-- FORM VIEW -->
+
+      <!-- record for the "ir.actions.act_window" -->
+      <record id="action_records_form" model="ir.actions.act_window">
+          <field name="name">Phonebook Records</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">phone.book</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+      <!-- record for the "ir.actions.act_window" -->
+
+      <menuitem id="menu_records" name="Phonebook Records" sequence="22" />
+      <!-- menu point -->
+
+      <!-- action for the menu point -->
+      <menuitem action="action_records_form" id="menu_action_recs" parent="menu_records" sequence="10" />
+      <!-- action for the menu point -->
+
+  </data>
+</odoo>
+'''
+
+
+* Add it to the //__manifest__.py//
+'''
+# always loaded
+    'data': [
+        # 'security/ir.model.access.csv',
+        'views/views.xml',
+        'views/phonebook_view.xml',
+        'views/templates.xml',
+    ],
+'''
+
+
+===== All types of fields =====
+
+=== Types of fields: ===
+* **Boolean**
+* **Char**
+* **Text**
+* **HTML**
+* **Integer**
+* **Float**
+* **Date**
+* **DateTime**
+* **Binary**
+* **Selection**
+* **Reference**
+* **Many2one**
+* **One2many**
+* **Many2many**
+
+
+
+
+
+
+
+
+
+
+
+
